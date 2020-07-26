@@ -1,6 +1,9 @@
-import Vue from 'vue'
-import app from './public/components/app.vue'
+import Vue from 'vue';
+
+import router from './router/router.js';
+import App from './components/App.vue';
 
 new Vue ({
-    render: h => h(app)
-}).$mount('#app')
+    router,
+    render: h => h(App)
+}).$mount('#app');

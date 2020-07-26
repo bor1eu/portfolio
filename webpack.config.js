@@ -1,6 +1,7 @@
-const VueLoaderPlugin = require ('vue-loader/lib/plugin')
-const HtmlPlugin = require ('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require ('vue-loader/lib/plugin');
+const HtmlPlugin = require ('html-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     devServer: {
@@ -27,33 +28,26 @@ module.exports = {
                 loader: 'babel-loader'
             },
             {
-                // test: /\.css$/,
-                // //loader: 'css-loader' без миницссплагина
-                // use: [
-                //     //preProcessor-loader
-                //     {
-                //         loader: MiniCssPlugin.loader,
-                //         options: {
-                //             publicPath: '../',
-                //             hmr: process.env.NODE_ENV === 'development'
-                //         }
-                //     },
-                //     'css-loader'
-                // ]
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
             }
         ]
     },
     plugins: [
         new HtmlPlugin ({
-            template: './src/public/index.html'
+            template: './public/index.html'
         }),
+        new MiniCssExtractPlugin(),
         // new CopyPlugin({
         //     patterns: [
         //       { from: 'source', to: 'dest' },
         //       { from: 'other', to: 'public' },
         //     ],
         // }),
-        // new MiniCssPlugin ({
+        // new MiniCssExtractPlugin ({
         //     filename: 'style/[name].css',
         //     chunkFilename: '[id].css',
         // }),
