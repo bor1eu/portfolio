@@ -27,10 +27,16 @@
 
 <script>
 export default {
-
+    name: 'About',
+    // components: {
+    // }
 }
 </script>
 
 <style>
-
+.about {
+    /* width: 100%; */
+    /* height: 100px; */
+    /* background-color: blue; */
+}
 </style>

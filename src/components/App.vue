@@ -1,22 +1,24 @@
 <template>
     <div id="app">
         <section class="content">
-            <keep-alive>
+            <!-- <keep-alive> -->
                 <Header/>
                 <router-view></router-view>
-            </keep-alive>
+                <!-- <About/> -->
+            <!-- </keep-alive> -->
         </section>
     </div>
-
 </template>
 
 <script>
 import Header from './Header.vue';
+import About from './About.vue';
 
 export default {
     name: 'App',
     components: {
         Header,
+        About
     }
 }
 </script>
@@ -28,8 +30,10 @@ export default {
     padding: 0;
 }
 .content {
-    width: 1200px;
+    max-width: 1200px;
     background-color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
 }
+
 </style>
